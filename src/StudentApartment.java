@@ -34,6 +34,47 @@ public class StudentApartment {
     }
 
 
+    // Validation for Name
+    public boolean judgeName(String name) {
+        boolean flag = true;
+        if (name.length() < 2 || name.trim().isEmpty()) {
+            flag = false;
+        }
+        return flag;
+    }
+
+
+    // Validation for Phone Number
+    public boolean judgeID(String studentID) {
+        boolean flag = true;
+        if (studentID.length() != 12) {
+            flag = false;
+        }
+        try {
+            Long.parseLong(studentID);
+        } catch (NumberFormatException e) {
+            flag = false;
+        }
+        return flag;
+    }
+
+
+    // Validation for Phone Number
+    public boolean judgePhoneNumber(String telephoneNumber) {
+        boolean flag = true;
+        if (telephoneNumber.length() != 11) {
+            flag = false;
+        }
+        try {
+            Long.parseLong(telephoneNumber);
+        } catch (NumberFormatException e) {
+            flag = false;
+        }
+        return flag;
+    }
+
+
+
     // Setters and Getters
     public String getName() {
         return name;
@@ -46,15 +87,20 @@ public class StudentApartment {
     }
 
 
-    //TODO
     public void setName(String name) {
-        this.name = name;
+        if (judgeName(name)) {
+            this.name = name;
+        }
     }
     public void setStudentID(String studentID) {
-        this.studentID = studentID;
+        if (judgeID(studentID)) {
+            this.studentID = studentID;
+        }
     }
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        if (judgePhoneNumber(phoneNumber)) {
+            this.phoneNumber = phoneNumber;
+        }
     }
 
 
@@ -63,7 +109,6 @@ public class StudentApartment {
 //    }
 
 
-    //TODO 1
     public void cancelTerm(int serialNumber) {
 
         if (iterms.get(serialNumber) == 1) {
@@ -73,7 +118,6 @@ public class StudentApartment {
     }
 
 
-    //TODO 1
     public void applicationSuccess(int serialNumber) {
 
         if (iterms.get(serialNumber) == 1) {
@@ -83,7 +127,6 @@ public class StudentApartment {
     }
 
 
-    //TODO 1
     public void applicationFailed(int serialNumber) {
 
         if (iterms.get(serialNumber) == 1) {
