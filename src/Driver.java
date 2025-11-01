@@ -46,7 +46,7 @@ public class Driver {
     }
 
 
-    // Validation for Phone Number
+    // Validation for studentID
     public boolean judgeID(String studentID) {
         boolean flag = true;
         if (studentID.length() != 12) {
@@ -94,7 +94,21 @@ public class Driver {
 
         System.out.print("\033[33m[Enter student ID]   \033[0m");
         String studentID = input.nextLine();
-        while (!(judgeID(studentID))) {
+        boolean flag = true;
+        for (int i = 0; i < studentStore.size(); i++) {
+            if (studentStore.get(i).getStudentID().equals(studentID)) {
+                flag = false;
+                break;
+            }
+        }
+        while (!(judgeID(studentID)) || !flag) {
+            flag = true;
+            for (int i = 0; i < studentStore.size(); i++) {
+                if (studentStore.get(i).getStudentID().equals(studentID)) {
+                    flag = false;
+                    break;
+                }
+            }
             System.out.print("\033[33m[Please enter a valid student ID]   \033[0m");
             studentID = input.nextLine();
         }
@@ -127,15 +141,15 @@ public class Driver {
         input.nextLine();
 
 
-        boolean flag = false;
+        boolean flag1 = false;
         for (int i = 0; i < studentStore.size(); i++) {
             if (studentStore.get(i).getStudentID().equals(studentID)) {
                 studentStore.get(i).iterms.set(startProjectNumber - 1, 1);
-                flag = true;
+                flag1 = true;
                 break;
             }
         }
-        if (!flag) {
+        if (!flag1) {
             System.out.println("\033[33m<Please enter a valid student ID!>\033[0m");
         }
 
