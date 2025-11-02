@@ -102,6 +102,8 @@ public class Driver {
             }
         }
         while (!(judgeID(studentID)) || !flag) {
+            System.out.print("\033[33m[Please enter a valid student ID]   \033[0m");
+            studentID = input.nextLine();
             flag = true;
             for (int i = 0; i < studentStore.size(); i++) {
                 if (studentStore.get(i).getStudentID().equals(studentID)) {
@@ -109,8 +111,7 @@ public class Driver {
                     break;
                 }
             }
-            System.out.print("\033[33m[Please enter a valid student ID]   \033[0m");
-            studentID = input.nextLine();
+
         }
 
         System.out.print("\033[33m[Enter phone number] \033[0m");
