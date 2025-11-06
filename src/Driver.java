@@ -244,7 +244,7 @@ public class Driver {
         input.nextLine();
 
         System.out.print("""
-                \033[35m\n----------------
+                \n\033[35m----------------
                  Update Options
                 ----------------
                 1) Cancel the Application

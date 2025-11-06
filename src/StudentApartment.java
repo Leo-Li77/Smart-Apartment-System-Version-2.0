@@ -21,9 +21,9 @@ public class StudentApartment {
     ArrayList<Integer> iterms = new ArrayList<>(List.of(0, 0, 0, 0, 0, 0, 0, 0));
     ArrayList<String> status = new ArrayList<>(List.of("<Not in Progress>", "<In Progress>", "<Processing Succeeded>", "<Processing Failed>"));
 
-    String name;
-    String studentID;
-    String phoneNumber;
+    private String name;
+    private String studentID;
+    private String phoneNumber;
 
 
     StudentApartment() {
@@ -40,7 +40,7 @@ public class StudentApartment {
 
 
     // Validation for Name
-    public boolean judgeName(String name) {
+    private boolean judgeName(String name) {
         boolean flag = true;
         if (name.length() < 2 || name.trim().isEmpty()) {
             flag = false;
@@ -50,7 +50,7 @@ public class StudentApartment {
 
 
     // Validation for Phone Number
-    public boolean judgeID(String studentID) {
+    private boolean judgeID(String studentID) {
         boolean flag = true;
         if (studentID.length() != 12) {
             flag = false;
@@ -65,7 +65,7 @@ public class StudentApartment {
 
 
     // Validation for Phone Number
-    public boolean judgePhoneNumber(String telephoneNumber) {
+    private boolean judgePhoneNumber(String telephoneNumber) {
         boolean flag = true;
         if (telephoneNumber.length() != 11) {
             flag = false;
@@ -107,11 +107,6 @@ public class StudentApartment {
             this.phoneNumber = phoneNumber;
         }
     }
-
-
-//    public void startApplication(int serialNumber) {
-//
-//    }
 
 
     public void cancelTerm(int serialNumber) {
