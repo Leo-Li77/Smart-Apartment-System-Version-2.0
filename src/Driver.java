@@ -76,6 +76,21 @@ public class Driver {
     }
 
 
+    // Validation of studentID
+    private String readUniqueStudentID(Scanner input, List<StudentApartment> store) {
+        while (true) {
+            String id = input.nextLine();
+            if (!judgeID(id)) {
+                System.out.print("\033[33m[Student ID must be exactly 12 digits] \033[0m");
+                continue;
+            }
+            if (store.stream().anyMatch(s -> s.getStudentID().equals(id))) {
+                System.out.print("\033[33m[This student ID is already registered] \033[0m");
+                continue;
+            }
+            return id;
+        }
+    }
 
 
     public void addAndStart() {
@@ -84,7 +99,7 @@ public class Driver {
         System.out.println("\033[33m Start Project \033[0m");
         System.out.println("\033[33m---------------\033[0m");
 
-
+        // input and validate the name
         System.out.print("\033[33m[Enter name]         \033[0m");
         String name = input.nextLine();
         while (!(judgeName(name))) {
@@ -92,7 +107,13 @@ public class Driver {
             name = input.nextLine();
         }
 
+        // input and validate studentID
         System.out.print("\033[33m[Enter student ID]   \033[0m");
+        // Validation of StudentID
+        String studentID = readUniqueStudentID(input, studentStore);
+
+        // The first version of studentID's validation.
+        /*
         String studentID = input.nextLine();
         boolean flag = true;
         for (int i = 0; i < studentStore.size(); i++) {
@@ -113,7 +134,9 @@ public class Driver {
             }
 
         }
+         */
 
+        // input and validate phone number
         System.out.print("\033[33m[Enter phone number] \033[0m");
         String phoneNumber = input.nextLine();
         while (!(judgePhoneNumber(phoneNumber))) {
