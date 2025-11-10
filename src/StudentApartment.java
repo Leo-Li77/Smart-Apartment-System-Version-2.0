@@ -26,13 +26,13 @@ public class StudentApartment {
     private String phoneNumber;
 
 
-    StudentApartment() {
+     public StudentApartment() {
         this.name = "NAME";
         this.studentID = "000000000000";
         this.phoneNumber = "00000000000";
     }
 
-    StudentApartment(String name, String studentID, String phoneNumber) {
+    public StudentApartment(String name, String studentID, String phoneNumber) {
         setName(name);
         setStudentID(studentID);
         setPhoneNumber(phoneNumber);
